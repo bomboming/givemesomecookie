@@ -13,5 +13,3 @@ for tr in trs:
     rank_tag = tr.select_one('a > div > strong').text
     name_tag = tr.select_one('a > span').text
     print(rank_tag, name_tag)
-
-# test
