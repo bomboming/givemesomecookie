@@ -7,9 +7,9 @@ data = requests.get('http://www.baskinrobbins.co.kr/menu/list.php?top=A', header
 
 soup = BeautifulSoup(data.text, 'html.parser')
 
-trs = soup.select('#slider > div > ul > li')
+rank_trs = soup.select('#slider > div > ul > li')
 
-for tr in trs:
-    rank_tag = tr.select_one('a > div > strong').text
-    name_tag = tr.select_one('a > span').text
+for rank_tr in rank_trs:
+    rank_tag = rank_tr.select_one('a > div > strong').text
+    name_tag = rank_tr.select_one('a > span').text
     print(rank_tag, name_tag)
