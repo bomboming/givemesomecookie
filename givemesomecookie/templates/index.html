@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>배스킨라빈스 무슨 맛 먹을까?</title>
+
+    <link rel="stylesheet" href="../static/css/default.css"/>
+    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="../static/css/qna.css"/>
+    <link rel="stylesheet" href="../static/css/animation.css"/>
+    <link rel="stylesheet" href="../static/css/result.css"/>
+    <link rel="stylesheet" href="../static/css/nut_layer.css"/>
+    <style>
+        @font-face {
+            font-family: "BRBA_B";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section id="main" class="mx-auto my-5 py-5 px-3">
+        <span>배스킨</span><span>라빈스</span><br/><span>무슨 맛 먹을까?</span>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto ice-image my-5">
+            <div class="ice-image__box one me-3 col-4">
+                <img src="../static/img/image-15.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box two me-3 col-4">
+                <img src="../static/img/image-20.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box three me-3 col-4">
+                <img src="../static/img/image-10.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box four me-3 col-4">
+                <img src="../static/img/image-16.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box five col-4">
+                <img src="../static/img/image-29.png" alt="mainImage" class="img-fluid"/>
+            </div>
+        </div>
+        <p>
+            배스킨라빈스 오늘은 무슨 맛 먹을지 고민이라면? <br/>
+            취향에 딱 맛는 맛을 골라드립니다.<br/>
+            아래 시작하기 버튼을 눌러 시작해보세요!
+        </p>
+        <div class="check my-5">
+            <label
+            ><input
+                    type="checkbox"
+                    name="size"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />싱글(1가지맛)</label
+            >
+            <label
+            ><input
+                    type="checkbox"
+                    name="size"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />파인트(3가지맛)</label
+            >
+            <label
+            ><input
+                    type="checkbox"
+                    name="size"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />쿼터(4가지맛)</label
+            >
+            <label
+            ><input
+                    type="checkbox"
+                    name="size"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />패밀리(5가지맛)</label
+            >
+            <label
+            ><input
+                    type="checkbox"
+                    name="size"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />하프갤런(6가지맛)</label
+            >
+        </div>
+        <button
+                type="button"
+                class="test-btn mt-3 py-2 px-3"
+                onclick="begin(),dialog()"
+        >
+            테스트 시작하기
+        </button>
+    </section>
+
+    <section id="qna">
+        <div class="status mx-auto mt-5">
+            <div class="statusBar"></div>
+        </div>
+        <div class="qBox"></div>
+        <div class="answerBox"></div>
+    </section>
+
+    <section id="result" class="mx-auto">
+        <h1>내입맛에 딱맞는 아이스크림!</h1>
+        <div class="resultName"></div>
+        <button id="resultImg" class="dialog__trigger col-lg-4 col-md-6 col-sm-8 col-10"></button>
+        <div class="dialog">
+            <span class="dialog__close">&#x2715;</span>
+
+            <h2 class="dialog__title resultName"></h2>
+            <div class="dialog__content">
+                {% for nutrition in nutritions %}
+                    {% if nutrition['name'] == nResultName %}
+                        {% if nutrition['sugar'] != "" %}
+                            <tr>
+                                <td>
+                                    <p>{{ nutrition['name'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['size'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['kcal'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['sodium'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['sugar'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['fat'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['protein'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['caffeine'] }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ nutrition['allergy'] }}</p>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <button class="dialog__action">Read more &#8594;</button>
+        </div>
+        <div class="resultDesc"></div>
+        <button type="button" onclick="window.location.reload()">테스트 다시하기</button>
+        <button type="button">근처 매장찾기</button>
+        <button type="button">공유하기</button>
+    </section>
+
+    <script src="../static/js/data.js" charset="utf-8"></script>
+    <script src="../static/js/start.js" charset="utf-8"></script>
+    <script src="../static/js/nut_layer.js" charset="utf-8"></script>
+</div>
+</body>
+<script>
+    function dialog() {
+
+        let dialogBox = $('.dialog'),
+            dialogTrigger = $('.dialog__trigger'),
+            dialogClose = $('.dialog__close'),
+            dialogTitle = $('.dialog__title'),
+            dialogContent = $('.dialog__content'),
+            dialogAction = $('.dialog__action');
+
+        // Open the dialog
+        dialogTrigger.on('click', function (e) {
+            dialogBox.toggleClass('dialog--active');
+            e.stopPropagation()
+        });
+
+        // Close the dialog - click close button
+        dialogClose.on('click', function () {
+            dialogBox.removeClass('dialog--active');
+        });
+
+        // Close the dialog - press escape key // key#27
+        $(document).keyup(function (e) {
+            if (e.keyCode === 27) {
+                dialogBox.removeClass('dialog--active');
+            }
+        });
+
+        // Close dialog - click outside
+        $(document).on("click", function (e) {
+            if ($(e.target).is(dialogBox) === false &&
+                $(e.target).is(dialogTitle) === false &&
+                $(e.target).is(dialogContent) === false &&
+                $(e.target).is(dialogAction) === false) {
+                dialogBox.removeClass("dialog--active");
+            }
+        });
+
+    };
+
+    // Run function when the document has loaded
+    $(function () {
+        dialog();
+    });
+</script>
+</html>

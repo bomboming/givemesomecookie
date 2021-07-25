@@ -1,0 +1,132 @@
+/* main 화면에 영향을 주는 css*/
+#main {
+  background-color: whitesmoke;
+  width: 80%;
+  text-align: center;
+  border-radius: 20px;
+  font-family: "BRBA_B";
+  box-sizing: border-box;
+}
+
+#main span {
+  font-size: 35px;
+}
+
+#main span:first-child {
+  color: #224289;
+}
+
+#main span:nth-child(2) {
+  color: #e01883;
+}
+
+p {
+  font-size: 22px;
+}
+
+.ice-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.ice-image__box {
+  background-color: violet;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ice-image__box:first-child {
+  background-color: #ffd884;
+}
+
+.ice-image__box:nth-child(2) {
+  background-color: #84cfe7;
+}
+
+.ice-image__box:nth-child(3) {
+  background-color: #deac88;
+}
+
+.ice-image__box:nth-child(4) {
+  background-color: #fcc9db;
+}
+
+.ice-image__box:last-child {
+  background-color: #d2e4a8;
+}
+
+@keyframes long {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ice-image__box img {
+  animation: long 2s ease-in-out infinite;
+}
+
+.one img {
+  animation-delay: 0s;
+}
+
+.two img {
+  animation-delay: 0.4s;
+}
+
+.three img {
+  animation-delay: 0.8s;
+}
+
+.four img {
+  animation-delay: 1.2s;
+}
+
+.five img {
+  animation-delay: 1.6s;
+}
+
+.check {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 180px;
+  margin: auto;
+  text-align: left;
+}
+
+.check label:hover {
+  cursor: pointer;
+}
+
+.size-checkbox:checked {
+  box-shadow: 0 0 0 3px hotpink;
+}
+
+.test-btn {
+  background-color: #2d4b8f;
+  color: whitesmoke;
+  border-radius: 10px;
+  border: 2px solid #2d4b8f;
+}
+
+.test-btn:hover {
+  background-color: whitesmoke;
+  color: #2d4b8f;
+}

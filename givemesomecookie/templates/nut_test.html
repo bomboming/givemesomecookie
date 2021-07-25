@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <title>Title</title>
+
+
+    <style>
+        .nResult {
+            text-align: center;
+        }
+
+        .rResult {
+            width: 250px;
+            text-align: center;
+            vertical-align: center;
+            padding: 20px;
+            margin: 50px auto;
+
+        }
+
+        caption {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #CD5C5C;
+        }
+
+        tr:hover {
+            background-color: #F5F5F5;
+        }
+    </style>
+</head>
+<body>
+<table class="rResult">
+    <caption style="caption-side: top"><b>실시간 인기메뉴 순위</b></caption>
+    {% for doc in docs %}
+        <tr>
+            <td>
+                {{ doc['ranks'] }}
+            </td>
+            <td>
+                {{ doc['names'] }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<div class="nResult">
+    <table>
+        <thead>
+        <tr>
+            <th>제품명</th>
+            <th>1회 제공량(g)</th>
+            <th>열량(kcal)</th>
+            <th>나트륨(mg)</th>
+            <th>당류(g)</th>
+            <th>포화지방(g)</th>
+            <th>단백질(g)</th>
+            <th>카페인(mg)</th>
+            <th>알러지 유발성분</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for nutrition in nutritions %}
+            {% if nutrition['sugar'] != "" %}
+                <tr>
+                    <td>
+                        <p>{{ nutrition['name'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['size'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['kcal'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['sodium'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['sugar'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['fat'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['protein'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['caffeine'] }}</p>
+                    </td>
+                    <td>
+                        <p>{{ nutrition['allergy'] }}</p>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
