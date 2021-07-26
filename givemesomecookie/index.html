@@ -26,6 +26,7 @@
         font-style: normal;
       }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -53,43 +54,49 @@
           취향에 딱 맛는 맛을 골라드립니다.<br />
           아래 시작하기 버튼을 눌러 시작해보세요!
         </p>
+
         <div class="check my-5">
           <label
             ><input
-              type="checkbox"
+              type="radio"
               name="size"
+              value="single"
               class="size-checkbox me-2"
               onclick="checkOnlyOne(this)"
             />싱글(1가지맛)</label
           >
           <label
             ><input
-              type="checkbox"
+              type="radio"
               name="size"
+              value="pint"
               class="size-checkbox me-2"
               onclick="checkOnlyOne(this)"
             />파인트(3가지맛)</label
           >
           <label
             ><input
-              type="checkbox"
+              type="radio"
               name="size"
+              value="quarter"
               class="size-checkbox me-2"
               onclick="checkOnlyOne(this)"
             />쿼터(4가지맛)</label
           >
           <label
             ><input
-              type="checkbox"
+              type="radio"
               name="size"
+              value="family"
               class="size-checkbox me-2"
               onclick="checkOnlyOne(this)"
             />패밀리(5가지맛)</label
           >
           <label
             ><input
-              type="checkbox"
+              type="radio"
               name="size"
+              value="halfGallon"
               class="size-checkbox me-2"
               onclick="checkOnlyOne(this)"
             />하프갤런(6가지맛)</label
@@ -104,25 +111,29 @@
         </button>
       </section>
 
-      <section id="qna">
-        <div class="status mx-auto mt-5">
+      <section id="qna" class="mx-auto my-5 py-5 px-3">
+        <div class="status mx-auto">
           <div class="statusBar"></div>
         </div>
-        <div class="qBox"></div>
+        <div class="qBox my-5 py-3 mx-auto"></div>
         <div class="answerBox"></div>
       </section>
 
-      <section id="result">
-        <h1>내입맛에 딱맞는 아이스크림!</h1>
+      <section id="result" class="mx-auto my-5 py-5 px-3">
+        <h1 class="mb-5">내입맛에 딱맞는 아이스크림은?</h1>
         <div class="resultname"></div>
         <div
           id="resultImg"
-          class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto"
+          class="col-lg-3 col-md-4 col-sm-5 col-6 mx-auto"
         ></div>
-        <div class="resultDesc"></div>
-        <button type="button">테스트 다시하기</button>
-        <button type="button">근처 매장찾기</button>
-        <button type="button">공유하기</button>
+        <div class="resultDesc mb-5"></div>
+        <button type="button" class="result-btn py-2 px-3 me-3">
+          테스트 다시하기
+        </button>
+        <button type="button" class="result-btn py-2 px-3 me-3">
+          근처 매장찾기
+        </button>
+        <button type="button" class="result-btn py-2 px-3">공유하기</button>
       </section>
 
       <script src="./js/data.js" charset="utf-8"></script>
