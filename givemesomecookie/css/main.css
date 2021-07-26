@@ -103,10 +103,9 @@ p {
 
 .check {
   font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex;
   flex-direction: column;
+  text-align: start;
 }
 
 .check label:hover {
