@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>배스킨라빈스 무슨 맛 먹을까?</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/css/default.css"/>
+    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="../static/css/qna.css"/>
+    <link rel="stylesheet" href="../static/css/animation.css"/>
+    <link rel="stylesheet" href="../static/css/result.css"/>
+    <link rel="stylesheet" href="../static/css/layer.css"/>
+    <style>
+        @font-face {
+            font-family: "BRBA_B";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <section id="main" class="mx-auto my-5 py-5 px-3">
+        <span>배스킨</span><span>라빈스</span><br/><span>무슨 맛 먹을까?</span>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto ice-image my-5">
+            <div class="ice-image__box one me-3 col-4">
+                <img src="../static/img/image-15.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box two me-3 col-4">
+                <img src="../static/img/image-20.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box three me-3 col-4">
+                <img src="../static/img/image-10.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box four me-3 col-4">
+                <img src="../static/img/image-16.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box five col-4">
+                <img src="../static/img/image-29.png" alt="mainImage" class="img-fluid"/>
+            </div>
+        </div>
+        <p>
+            배스킨라빈스 오늘은 무슨 맛 먹을지 고민이라면? <br/>
+            취향에 딱 맛는 맛을 골라드립니다.<br/>
+            아래 시작하기 버튼을 눌러 시작해보세요!
+        </p>
+
+        <div class="check my-5">
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="single"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />싱글(1가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="pint"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />파인트(3가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="quarter"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />쿼터(4가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="family"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />패밀리(5가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="halfGallon"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />하프갤런(6가지맛)</label
+            >
+        </div>
+
+        <button
+                data-num="1"
+                type="button"
+                class="test-btn py-2 px-3 row mx-auto"
+                onclick="begin()"
+        >
+            테스트 시작하기
+        </button>
+    </section>
+    {#<a href="#layer2" class="btn-example">딤처리 팝업레이어 1</a>#}
+    <section id="qna" class="mx-auto my-5 py-5 px-3">
+        <div class="status mx-auto">
+            <div class="statusBar"></div>
+        </div>
+        <div class="qBox my-5 py-3 mx-auto"></div>
+        <div class="answerBox"></div>
+    </section>
+
+    <section id="result" class="mx-auto my-5 py-5 px-3">
+        <h1 class="mb-5">내입맛에 딱맞는 아이스크림은?</h1>
+        <div class="resultname"></div>
+        <div
+                id="resultImg"
+                class="col-lg-3 col-md-4 col-sm-5 col-6 mx-auto"
+        ></div>
+        <div class="resultDesc mb-5"></div>
+        <table class="rResult mx-auto">
+            <caption style="caption-side: top"><b>실시간 인기메뉴 순위</b></caption>
+            {% for doc in docs %}
+                <tr>
+                    <td>
+                        {{ doc['ranks'] }}
+                    </td>
+                    <td>
+                        {{ doc['names'] }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <button class="result-btn py-2 px-3 me-3" onclick="window.location.reload()">
+            테스트 다시하기
+        </button>
+        <button class="result-btn py-2 px-3 me-3">
+            근처 매장찾기
+        </button>
+        <button class="result-btn py-2 px-3 me-3">공유하기</button>
+        <button class="dialog__trigger result-btn py-2 px-3">영양정보 확인하기</button>
+        <div class="dialog">
+            <span class="dialog__close">&#x2715;</span>
+            <table>
+                <thead class="dialog__title">
+                <tr>
+                    <th>제품명</th>
+                    <th>1회 제공량(g)</th>
+                    <th>열량(kcal)</th>
+                    <th>나트륨(mg)</th>
+                    <th>당류(g)</th>
+                    <th>포화지방(g)</th>
+                    <th>단백질(g)</th>
+                    <th>알러지 유발성분</th>
+                </tr>
+                </thead>
+                <tbody class="dialog__content">
+                {% for nutrition in nutritions %}
+                    {% if nutrition['sugar'] != "" and nutrition['caffeine'] == "-" %}
+                        <tr>
+                            <td>
+                                <p>{{ nutrition['name'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['size'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['kcal'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['sodium'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['sugar'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['fat'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['protein'] }}</p>
+                            </td>
+                            <td>
+                                <p>{{ nutrition['allergy'] }}</p>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="dim-layer">
+        <div class="dimBg"></div>
+        <div data-num="1" class="pop-layer">
+            <div class="pop-container">
+                <div class="pop-conts">
+                    <!--content //-->
+                    <p class="ctxt mb20">Thank you.<br>
+                        Your registration was submitted successfully.<br>
+                        Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
+                        Hope to see you soon!
+                    </p>
+
+                    <div class="btn-r">
+                        <a href="#" class="btn-layerClose">Close</a>
+                    </div>
+                    <!--// content-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/data.js" charset="utf-8"></script>
+    <script src="../static/js/start.js" charset="utf-8"></script>
+    <script src="../static/js/layer.js" charset="utf-8"></script>
+</div>
+</body>
+</html>
