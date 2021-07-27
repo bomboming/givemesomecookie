@@ -4,8 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keyword" content="배스킨라빈스" />
+    <meta name="description" content="배스킨라빈스 맛추천" />
+    <meta name="author" content="kkakkasajo" />
 
-    <title>배스킨라빈스 무슨 맛 먹을까?</title>
+    <!-- sns Share -->
+    <meta property="og:url" content="https://kkakkasajo.netlify.app" />
+    <meta property="og:title" content="배스킨라빈스 무슨 맛 먹을까?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/mobile.jpg" />
+    <meta
+      property="og:description"
+      content="취향에 맞는 아이스크림을 추천해드려요!"
+    />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/icecream.ico" />
+    <link rel="apple-touch-icon-precomposed" href="img/favicon.ico" />
+
+    <!-- css -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,7 +43,14 @@
         font-style: normal;
       }
     </style>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      Kakao.init("30c8aacc461996e5212cc88f0ee8deab");
+      Kakao.isInitialized();
+    </script>
+    <title>배스킨라빈스 무슨 맛 먹을까?</title>
   </head>
   <body>
     <div class="container">
@@ -128,17 +152,33 @@
           class="col-lg-3 col-md-4 col-sm-5 col-6 mx-auto"
         ></div>
         <div class="resultDesc mb-5"></div>
-        <button type="button" class="result-btn py-2 px-3 me-3">
+        <button
+          type="button"
+          class="result-btn py-2 px-3 me-3"
+          onclick="js:moveHome()"
+        >
           테스트 다시하기
         </button>
-        <button type="button" class="result-btn py-2 px-3 me-3">
+        <button
+          type="button"
+          class="result-btn py-2 px-3 me-3"
+          onclick="js:map()"
+        >
           근처 매장찾기
         </button>
-        <button type="button" class="result-btn py-2 px-3">공유하기</button>
+        <button
+          type="button"
+          class="result-btn py-2 px-3"
+          onclick="js:kakaoShare()"
+        >
+          공유하기
+        </button>
       </section>
 
       <script src="./js/data.js" charset="utf-8"></script>
       <script src="./js/start.js" charset="utf-8"></script>
+      <script src="./js/map.js" charset="utf-8"></script>
+      <script src="./js/share.js" charset="utf-8"></script>
     </div>
   </body>
 </html>
