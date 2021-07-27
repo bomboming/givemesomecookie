@@ -1,7 +1,7 @@
 /* main 화면에 영향을 주는 css*/
 #main {
   background-color: whitesmoke;
-  width: 80%;
+  width: 90%;
   text-align: center;
   border-radius: 20px;
   font-family: "BRBA_B";
@@ -28,7 +28,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 50%;
 }
 
 .ice-image__box {
