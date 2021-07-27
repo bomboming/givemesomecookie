@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keyword" content="배스킨라빈스"/>
+    <meta name="description" content="배스킨라빈스 맛추천"/>
+    <meta name="author" content="kkakkasajo"/>
+
+    <!-- sns Share -->
+    <meta property="og:url" content="https://kkakkasajo.netlify.app"/>
+    <meta property="og:title" content="배스킨라빈스 무슨 맛 먹을까?"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="img/mobile.jpg"/>
+    <meta
+            property="og:description"
+            content="취향에 맞는 아이스크림을 추천해드려요!"
+    />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../static/img/icecream.ico"/>
+    <link rel="apple-touch-icon-precomposed" href="../static/img/favicon.ico"/>
+
+    <!-- css -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/css/default.css"/>
+    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="../static/css/qna.css"/>
+    <link rel="stylesheet" href="../static/css/animation.css"/>
+    <link rel="stylesheet" href="../static/css/result.css"/>
+    <link rel="stylesheet" href="../static/css/layer.css"/>
+    <style>
+        @font-face {
+            font-family: "BRBA_B";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init("30c8aacc461996e5212cc88f0ee8deab");
+        Kakao.isInitialized();
+    </script>
+    <title>배스킨라빈스 무슨 맛 먹을까?</title>
+</head>
+<body>
+<div class="container">
+    <section id="main" class="mx-auto my-5 py-5 px-3">
+        <span>배스킨</span><span>라빈스</span><br/><span>무슨 맛 먹을까?</span>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto ice-image my-5">
+            <div class="ice-image__box one me-1 col-4">
+                <img src="../static/img/image-15.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box two me-1 col-4">
+                <img src="../static/img/image-20.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box three me-1 col-4">
+                <img src="../static/img/image-10.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box four me-1 col-4">
+                <img src="../static/img/image-16.png" alt="mainImage" class="img-fluid"/>
+            </div>
+            <div class="ice-image__box five col-4">
+                <img src="../static/img/image-29.png" alt="mainImage" class="img-fluid"/>
+            </div>
+        </div>
+        <p>
+            배스킨라빈스 오늘은 무슨 맛 먹을지 고민이라면? <br/>
+            취향에 딱 맛는 맛을 골라드립니다.<br/>
+            아래 시작하기 버튼을 눌러 시작해보세요!
+        </p>
+
+        <div class="check my-5">
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="single"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />싱글(1가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="pint"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />파인트(3가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="quarter"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />쿼터(4가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="family"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />패밀리(5가지맛)</label
+            >
+            <label
+            ><input
+                    type="radio"
+                    name="size"
+                    value="halfGallon"
+                    class="size-checkbox me-2"
+                    onclick="checkOnlyOne(this)"
+            />하프갤런(6가지맛)</label
+            >
+        </div>
+
+        <button
+                type="button"
+                class="test-btn py-2 px-3 row mx-auto"
+                onclick="js:begin()"
+        >
+            테스트 시작하기
+        </button>
+    </section>
+
+    <section id="qna" class="mx-auto my-5 py-5 px-3">
+        <div class="status mx-auto">
+            <div class="statusBar"></div>
+        </div>
+        <div class="qBox my-5 py-3 mx-auto"></div>
+        <div class="answerBox"></div>
+    </section>
+
+    <section id="result" class="mx-auto my-5 py-5 px-3">
+        <h1 class="mb-5">내입맛에 딱맞는 아이스크림은?</h1>
+        <div class="resultname"></div>
+        <div
+                id="resultImg"
+                class="col-lg-3 col-md-4 col-sm-5 col-6 mx-auto"
+        ></div>
+        <div class="resultDesc mb-5"></div>
+        <table class="rResult mx-auto">
+            <caption style="caption-side: top"><b>실시간 인기메뉴 순위</b></caption>
+            <tbody>
+            <tr>
+                <td>
+                    1위
+                </td>
+                <td>
+                    꿀.바.망
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    2위
+                </td>
+                <td>
+                    엄마는 외계인
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    3위
+                </td>
+                <td>
+                    아몬드 봉봉
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    4위
+                </td>
+                <td>
+                    민트 초콜릿 칩
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    5위
+                </td>
+                <td>
+                    뉴욕 치즈케이크
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    6위
+                </td>
+                <td>
+                    체리쥬빌레
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    7위
+                </td>
+                <td>
+                    슈팅스타
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    8위
+                </td>
+                <td>
+                    오레오 쿠키 앤 크림
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    9위
+                </td>
+                <td>
+                    바람과 함께 사라지다
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    10위
+                </td>
+                <td>
+                    사랑에 빠진 딸기
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div class="result-btn-box">
+            <button
+                    type="button"
+                    class="result-btn py-2 px-3 my-2"
+                    onclick="window.location.reload()"
+            >
+                테스트 다시하기
+            </button>
+            <button
+                    type="button"
+                    class="result-btn py-2 px-3 my-2"
+                    onclick="js:map()"
+            >
+                근처 매장찾기
+            </button>
+            <button
+                    type="button"
+                    class="result-btn py-2 px-3 my-2"
+                    onclick="js:kakaoShare()"
+            >
+                공유하기
+            </button>
+            <button class="dialog__trigger result-btn py-2 px-3 my-2">영양정보 확인하기</button>
+            <div class="dialog">
+                <span class="dialog__close">&#x2715;</span>
+                <table>
+                    <thead class="dialog__title">
+                    <tr>
+                        <th>제품명</th>
+                        <th>1회 제공량(g)</th>
+                        <th>열량(kcal)</th>
+                        <th>나트륨(mg)</th>
+                        <th>당류(g)</th>
+                        <th>포화지방(g)</th>
+                        <th>단백질(g)</th>
+                        <th>알러지 유발성분</th>
+                    </tr>
+                    </thead>
+                    <tbody class="dialog__content">
+                    <tr>
+                        <td>
+                            <p>31요거트</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>198</p>
+                        </td>
+                        <td>
+                            <p>67</p>
+                        </td>
+                        <td>
+                            <p>26</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>그린티</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>245</p>
+                        </td>
+                        <td>
+                            <p>73</p>
+                        </td>
+                        <td>
+                            <p>20</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>꿀.바.망</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>235</p>
+                        </td>
+                        <td>
+                            <p>65</p>
+                        </td>
+                        <td>
+                            <p>24</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>뉴욕 치즈케이크</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>295</p>
+                        </td>
+                        <td>
+                            <p>102</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>디노 젤리</p>
+                        </td>
+                        <td>
+                            <p>115g</p>
+                        </td>
+                        <td>
+                            <p>256</p>
+                        </td>
+                        <td>
+                            <p>73</p>
+                        </td>
+                        <td>
+                            <p>25</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>딸기 연유 라떼</p>
+                        </td>
+                        <td>
+                            <p>480</p>
+                        </td>
+                        <td>
+                            <p>415</p>
+                        </td>
+                        <td>
+                            <p>113</p>
+                        </td>
+                        <td>
+                            <p>71</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>레몬라임 블라스트</p>
+                        </td>
+                        <td>
+                            <p>465</p>
+                        </td>
+                        <td>
+                            <p>235</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>58</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>없음</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>매드 어바웃 초콜릿</p>
+                        </td>
+                        <td>
+                            <p>115g</p>
+                        </td>
+                        <td>
+                            <p>243</p>
+                        </td>
+                        <td>
+                            <p>101</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>머스크 메론</p>
+                        </td>
+                        <td>
+                            <p>115g</p>
+                        </td>
+                        <td>
+                            <p>246</p>
+                        </td>
+                        <td>
+                            <p>109</p>
+                        </td>
+                        <td>
+                            <p>25</p>
+                        </td>
+                        <td>
+                            <p>9</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>민트 초콜릿 칩</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>259</p>
+                        </td>
+                        <td>
+                            <p>81</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>9</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>민트초코봉봉 블라스트</p>
+                        </td>
+                        <td>
+                            <p>441</p>
+                        </td>
+                        <td>
+                            <p>640</p>
+                        </td>
+                        <td>
+                            <p>335</p>
+                        </td>
+                        <td>
+                            <p>51</p>
+                        </td>
+                        <td>
+                            <p>26</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>밀크 쉐이크</p>
+                        </td>
+                        <td>
+                            <p>300</p>
+                        </td>
+                        <td>
+                            <p>480</p>
+                        </td>
+                        <td>
+                            <p>178</p>
+                        </td>
+                        <td>
+                            <p>40</p>
+                        </td>
+                        <td>
+                            <p>16</p>
+                        </td>
+                        <td>
+                            <p>9</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>바닐라</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>246</p>
+                        </td>
+                        <td>
+                            <p>74</p>
+                        </td>
+                        <td>
+                            <p>21</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>바람과 함께 사라지다</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>269</p>
+                        </td>
+                        <td>
+                            <p>95</p>
+                        </td>
+                        <td>
+                            <p>25</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀, 계란</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>베리베리 스트로베리</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>228</p>
+                        </td>
+                        <td>
+                            <p>69</p>
+                        </td>
+                        <td>
+                            <p>24</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>3</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>복숭아 아이스티</p>
+                        </td>
+                        <td>
+                            <p>460</p>
+                        </td>
+                        <td>
+                            <p>125</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>31</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>복숭아</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>봉쥬르 마카롱</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>266</p>
+                        </td>
+                        <td>
+                            <p>86</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 계란, 땅콩</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>사랑에 빠진 딸기</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>292</p>
+                        </td>
+                        <td>
+                            <p>103</p>
+                        </td>
+                        <td>
+                            <p>26</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀, 계란, 땅콩</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>샤인머스캣 블라스트</p>
+                        </td>
+                        <td>
+                            <p>435</p>
+                        </td>
+                        <td>
+                            <p>255</p>
+                        </td>
+                        <td>
+                            <p>1</p>
+                        </td>
+                        <td>
+                            <p>59</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>없음</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>설향 딸기 블라스트</p>
+                        </td>
+                        <td>
+                            <p>465</p>
+                        </td>
+                        <td>
+                            <p>250</p>
+                        </td>
+                        <td>
+                            <p>16</p>
+                        </td>
+                        <td>
+                            <p>58</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>1</p>
+                        </td>
+                        <td>
+                            <p>없음</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>슈팅스타</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>260</p>
+                        </td>
+                        <td>
+                            <p>65</p>
+                        </td>
+                        <td>
+                            <p>27</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>3</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>아몬드 봉봉</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>312</p>
+                        </td>
+                        <td>
+                            <p>94</p>
+                        </td>
+                        <td>
+                            <p>26</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>아몬드 봉봉 블라스트</p>
+                        </td>
+                        <td>
+                            <p>371</p>
+                        </td>
+                        <td>
+                            <p>590</p>
+                        </td>
+                        <td>
+                            <p>375</p>
+                        </td>
+                        <td>
+                            <p>59</p>
+                        </td>
+                        <td>
+                            <p>11</p>
+                        </td>
+                        <td>
+                            <p>11</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>아이스 허니버터 아몬드</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>272</p>
+                        </td>
+                        <td>
+                            <p>169</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>애플 민트</p>
+                        </td>
+                        <td>
+                            <p>115g</p>
+                        </td>
+                        <td>
+                            <p>189</p>
+                        </td>
+                        <td>
+                            <p>29</p>
+                        </td>
+                        <td>
+                            <p>22</p>
+                        </td>
+                        <td>
+                            <p>3</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>엄마는 외계인</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>296</p>
+                        </td>
+                        <td>
+                            <p>114</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>11</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>엄마는 외계인 블라스트</p>
+                        </td>
+                        <td>
+                            <p>362</p>
+                        </td>
+                        <td>
+                            <p>605</p>
+                        </td>
+                        <td>
+                            <p>304</p>
+                        </td>
+                        <td>
+                            <p>47</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>오레오 쉐이크</p>
+                        </td>
+                        <td>
+                            <p>297</p>
+                        </td>
+                        <td>
+                            <p>620</p>
+                        </td>
+                        <td>
+                            <p>320</p>
+                        </td>
+                        <td>
+                            <p>50</p>
+                        </td>
+                        <td>
+                            <p>19</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>오레오 쿠키 앤 크림</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>228</p>
+                        </td>
+                        <td>
+                            <p>127</p>
+                        </td>
+                        <td>
+                            <p>18</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>오버 더 레인보우 블라스트</p>
+                        </td>
+                        <td>
+                            <p>505</p>
+                        </td>
+                        <td>
+                            <p>245</p>
+                        </td>
+                        <td>
+                            <p>1</p>
+                        </td>
+                        <td>
+                            <p>60</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>없음</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>오버 더 레인보우 샤베트</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>199</p>
+                        </td>
+                        <td>
+                            <p>24</p>
+                        </td>
+                        <td>
+                            <p>27</p>
+                        </td>
+                        <td>
+                            <p>2.7</p>
+                        </td>
+                        <td>
+                            <p>2</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>와츄원 쉐이크</p>
+                        </td>
+                        <td>
+                            <p>300</p>
+                        </td>
+                        <td>
+                            <p>340~655</p>
+                        </td>
+                        <td>
+                            <p>85~321</p>
+                        </td>
+                        <td>
+                            <p>53~56</p>
+                        </td>
+                        <td>
+                            <p>4.4~19</p>
+                        </td>
+                        <td>
+                            <p>8~11</p>
+                        </td>
+                        <td>
+                            <p>선택하신 아이스크림의 알레르기 유발 성분을 확인해 주세요. 아이스크림 외 : 우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>월넛</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>276</p>
+                        </td>
+                        <td>
+                            <p>83</p>
+                        </td>
+                        <td>
+                            <p>28</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>9</p>
+                        </td>
+                        <td>
+                            <p>우유, 호두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>이상한 나라의 솜사탕</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>287</p>
+                        </td>
+                        <td>
+                            <p>109</p>
+                        </td>
+                        <td>
+                            <p>31</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>자모카 아몬드 훠지</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>273</p>
+                        </td>
+                        <td>
+                            <p>82</p>
+                        </td>
+                        <td>
+                            <p>25</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 호두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>쫀떡궁합</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>298</p>
+                        </td>
+                        <td>
+                            <p>83</p>
+                        </td>
+                        <td>
+                            <p>35</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>체리쥬빌레</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>239</p>
+                        </td>
+                        <td>
+                            <p>48</p>
+                        </td>
+                        <td>
+                            <p>28</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>3</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>초코나무 숲</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>290</p>
+                        </td>
+                        <td>
+                            <p>155</p>
+                        </td>
+                        <td>
+                            <p>23</p>
+                        </td>
+                        <td>
+                            <p>9</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>초콜릿</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>274</p>
+                        </td>
+                        <td>
+                            <p>85</p>
+                        </td>
+                        <td>
+                            <p>24</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>초콜릿 무스</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>318</p>
+                        </td>
+                        <td>
+                            <p>96</p>
+                        </td>
+                        <td>
+                            <p>27</p>
+                        </td>
+                        <td>
+                            <p>12</p>
+                        </td>
+                        <td>
+                            <p>5</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>트리플 치즈 러브</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>259</p>
+                        </td>
+                        <td>
+                            <p>85</p>
+                        </td>
+                        <td>
+                            <p>22</p>
+                        </td>
+                        <td>
+                            <p>10</p>
+                        </td>
+                        <td>
+                            <p>4</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>팥빙수 블라스트(with 밀탑)</p>
+                        </td>
+                        <td>
+                            <p>375</p>
+                        </td>
+                        <td>
+                            <p>330</p>
+                        </td>
+                        <td>
+                            <p>111</p>
+                        </td>
+                        <td>
+                            <p>48</p>
+                        </td>
+                        <td>
+                            <p>4.4</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>팥빙수 쉐이크(with 밀탑)</p>
+                        </td>
+                        <td>
+                            <p>300</p>
+                        </td>
+                        <td>
+                            <p>485</p>
+                        </td>
+                        <td>
+                            <p>188</p>
+                        </td>
+                        <td>
+                            <p>53</p>
+                        </td>
+                        <td>
+                            <p>13</p>
+                        </td>
+                        <td>
+                            <p>9</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>피스타치오 아몬드</p>
+                        </td>
+                        <td>
+                            <p>115</p>
+                        </td>
+                        <td>
+                            <p>302</p>
+                        </td>
+                        <td>
+                            <p>72</p>
+                        </td>
+                        <td>
+                            <p>27</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>7</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>허니 망고 라떼</p>
+                        </td>
+                        <td>
+                            <p>404</p>
+                        </td>
+                        <td>
+                            <p>315</p>
+                        </td>
+                        <td>
+                            <p>77</p>
+                        </td>
+                        <td>
+                            <p>50</p>
+                        </td>
+                        <td>
+                            <p>3.9</p>
+                        </td>
+                        <td>
+                            <p>6</p>
+                        </td>
+                        <td>
+                            <p>우유</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>허니레몬 티</p>
+                        </td>
+                        <td>
+                            <p>315</p>
+                        </td>
+                        <td>
+                            <p>200</p>
+                        </td>
+                        <td>
+                            <p>3</p>
+                        </td>
+                        <td>
+                            <p>42</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>0</p>
+                        </td>
+                        <td>
+                            <p>없음</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>허니버터 아몬드 블라스트</p>
+                        </td>
+                        <td>
+                            <p>420</p>
+                        </td>
+                        <td>
+                            <p>540</p>
+                        </td>
+                        <td>
+                            <p>419</p>
+                        </td>
+                        <td>
+                            <p>39</p>
+                        </td>
+                        <td>
+                            <p>17</p>
+                        </td>
+                        <td>
+                            <p>12</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <p>홈런볼 블라스트</p>
+                        </td>
+                        <td>
+                            <p>381</p>
+                        </td>
+                        <td>
+                            <p>555</p>
+                        </td>
+                        <td>
+                            <p>224</p>
+                        </td>
+                        <td>
+                            <p>28</p>
+                        </td>
+                        <td>
+                            <p>13</p>
+                        </td>
+                        <td>
+                            <p>8</p>
+                        </td>
+                        <td>
+                            <p>우유, 대두, 밀, 계란, 땅콩, 쇠고기</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/data.js" charset="utf-8"></script>
+    <script src="../static/js/start.js" charset="utf-8"></script>
+    <script src="../static/js/map.js" charset="utf-8"></script>
+    <script src="../static/js/share.js" charset="utf-8"></script>
+    <script src="../static/js/layer.js" charset="utf-8"></script>
+</div>
+</body>
+</html>
