@@ -7,17 +7,15 @@
   background-color: whitesmoke;
   text-align: center;
   border-radius: 20px;
-  font-size: 24px;
-  width: 90%;
+  width: 50%;
 }
 
 .answerList {
   background-color: whitesmoke;
   border-radius: 20px;
   display: block;
-  width: 90%;
+  width: 50%;
   border: 0px;
-  font-size: 20px;
 }
 
 .answerList:hover,
@@ -27,7 +25,7 @@
 }
 
 .status {
-  width: 90%;
+  width: 50%;
   height: 20px;
   background-color: white;
   border-radius: 20px;
