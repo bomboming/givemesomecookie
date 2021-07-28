@@ -1,15 +1,11 @@
 /* main 화면에 영향을 주는 css*/
 #main {
   background-color: whitesmoke;
-  width: 90%;
+  width: 50%;
   text-align: center;
   border-radius: 20px;
   font-family: "BRBA_B";
   box-sizing: border-box;
-}
-
-#main span {
-  font-size: 35px;
 }
 
 #main span:first-child {
@@ -20,15 +16,15 @@
   color: #e01883;
 }
 
-p {
-  font-size: 22px;
+#main p {
+  line-height: 180%;
 }
 
 .ice-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 45%;
 }
 
 .ice-image__box {
