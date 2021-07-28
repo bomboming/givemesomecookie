@@ -295,7 +295,7 @@ function begin() {
       } else if (value === 'family') {
           flavor = 5;
           console.log(flavor);
-      } else if (value === 'half') {
+      } else if (value === 'halfGallon') {
           flavor = 6;
           console.log(flavor);
           
