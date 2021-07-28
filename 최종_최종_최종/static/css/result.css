@@ -1,0 +1,33 @@
+#result {
+    background-color: whitesmoke;
+    width: 50%;
+    text-align: center;
+    border-radius: 20px;
+    font-family: "BRBA_B";
+    box-sizing: border-box;
+    display: none;
+}
+
+.result-btn-box {
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-btn {
+    background-color: whitesmoke;
+    color: #2d4b8f;
+    border-radius: 10px;
+    border: 1px solid #2d4b8f;
+    width: 85%;
+    font-size: 20px;
+}
+
+.result-btn:hover {
+    background-color: #2d4b8f;
+    color: whitesmoke;
+}
+
+.resultname {
+    font-size: 50px
+}
