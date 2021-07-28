@@ -2,12 +2,12 @@ function kakaoShare(){
   Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
-        title: '디저트 사진',
-        description: '아메리카노, 빵, 케익',
+        title: '배스킨라빈스 무슨 맛 먹을까?',
+        description: '취향에 맞는 아이스크림을 추천해드려요!',
         imageUrl:
-          'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+          'https://i.pinimg.com/originals/86/27/f2/8627f2ad4ff5bdfe2a7e8462ec8c8b99.jpg',
         link: {
-          mobileWebUrl: 'https://developers.kakao.com',
+          mobileWebUrl: 'https://kkakkasajo.netlify.app',
           androidExecutionParams: 'test',
         },
       },
@@ -20,13 +20,13 @@ function kakaoShare(){
         {
           title: '웹으로 이동',
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
+            mobileWebUrl: 'https://kkakkasajo.netlify.app',
           },
         },
         {
           title: '앱으로 이동',
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
+            mobileWebUrl: 'https://kkakkasajo.netlify.app',
           },
         },
       ]
