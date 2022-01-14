@@ -15,7 +15,7 @@
 2021.07.19~29일(11일)
 
 ## 기술스택 및 툴⚙
-Front-end: Html, CSS, JavaScript, jQuery, Ajax
+Front-end: Html, CSS, JavaScript, jQuery, Ajax  <br/>
 Back-end: Python, Pymongo, Flask, Jinja2
 
 ## 팀원🙋
