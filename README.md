@@ -9,7 +9,7 @@
 
 ## 실행화면🎞
 유튜브 링크 : 
-[![클릭!](https://youtu.be/PuOmprjn2T4)]
+[![클릭!]](https://youtu.be/PuOmprjn2T4) 
 
 ## ⏳ 팀 프로젝트 기간
 2021.07.19~29일(11일)
